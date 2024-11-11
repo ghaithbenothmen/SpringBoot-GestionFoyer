@@ -1,5 +1,6 @@
 package com.example.foyerprojectspring.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,9 +24,10 @@ public class Foyer {
 
 
     @OneToOne(mappedBy ="foyer")
+    @JsonIgnore
     private Universite universite;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "foyer")
+    @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL)
     private Set<Bloc> blocList;
 
 }

@@ -1,5 +1,6 @@
 package com.example.foyerprojectspring.Controllers;
 
+import com.example.foyerprojectspring.Entities.Foyer;
 import com.example.foyerprojectspring.Entities.Universite;
 import com.example.foyerprojectspring.Services.IUniversiteService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -52,5 +53,12 @@ public class UniversiteController {
     @Operation(summary = "Get all Universités", description = "Retrieves a list of all Universités.")
     public List<Universite> getAllUniversite() {
         return universiteService.getAllUniversite();
+    }
+
+    @PostMapping("/addFoyerToUniv/{idUniversite}")
+    @Operation(summary = "affecterFoyerExistsToUniversite", description = "affecterFoyerExistsToUniversite.")
+    public Universite affecterFoyerExistsToUniversite(@RequestBody Foyer foyer, @PathVariable("idUniversite") long idUniversite) {
+        return universiteService.affecterFoyerExistsToUniversite(idUniversite,foyer);
+
     }
 }

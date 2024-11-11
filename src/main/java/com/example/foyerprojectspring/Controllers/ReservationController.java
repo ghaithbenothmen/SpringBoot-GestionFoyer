@@ -52,5 +52,12 @@ public class ReservationController {
     public List<Reservation> getAllReservation() {
         return reservationService.getAllReservation();
     }
+
+    @PutMapping("/etudiantToResevation/{idetudiant}/{idReservation}")
+    @Operation(summary = "etudiant To Resevation", description = "etudiant To Resevation.")
+    public Reservation affecterEtudiantToReservation(@PathVariable("idetudiant") String idetudiant, @PathVariable("idReservation") long idReservation) {
+        return reservationService.affecterEtudiantToReservation(idetudiant,idReservation);
+    }
+
 }
 

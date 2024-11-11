@@ -1,6 +1,8 @@
 package com.example.foyerprojectspring.Services;
 
+import com.example.foyerprojectspring.Entities.Bloc;
 import com.example.foyerprojectspring.Entities.Foyer;
+import com.example.foyerprojectspring.Repository.BlocRepository;
 import com.example.foyerprojectspring.Repository.FoyerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +14,7 @@ import java.util.List;
 public class FoyerServiceImp implements IFoyerService {
 
     FoyerRepository foyerRepository;
-
+BlocRepository blocRepository;
 
     @Override
     public Foyer addFoyer(Foyer foyer) {
@@ -37,5 +39,14 @@ public class FoyerServiceImp implements IFoyerService {
     @Override
     public List<Foyer> getAllFoyer() {
         return foyerRepository.findAll();
+    }
+
+    @Override
+    public void assignBlocToFoyer(Long idBloc, Long idFoyer) {
+        Foyer foyer = foyerRepository.findById(idFoyer).get();
+        Bloc bloc = blocRepository.findById(idBloc).get();
+
+        bloc.setFoyer(foyer);
+        blocRepository.save(bloc);
     }
 }

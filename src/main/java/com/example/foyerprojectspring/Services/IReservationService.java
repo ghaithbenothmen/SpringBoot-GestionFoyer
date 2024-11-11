@@ -15,4 +15,6 @@ public interface IReservationService {
     void deleteReservation(Reservation reservation);
 
     List<Reservation> getAllReservation();
+
+    Reservation affecterEtudiantToReservation(String idREservation, Long idEtudiant) ;
 }

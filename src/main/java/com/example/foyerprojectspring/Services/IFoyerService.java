@@ -1,7 +1,6 @@
 package com.example.foyerprojectspring.Services;
 
 import com.example.foyerprojectspring.Entities.Foyer;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,4 +14,5 @@ public interface IFoyerService {
     void deleteFoyer(Foyer foyer);
 
     List<Foyer> getAllFoyer();
+    void assignBlocToFoyer(Long idBloc, Long idFoyer);
 }

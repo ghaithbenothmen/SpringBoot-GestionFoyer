@@ -53,4 +53,10 @@ public class FoyerController {
     public List<Foyer> getAllFoyer() {
         return foyerService.getAllFoyer();
     }
+
+    @PutMapping("/blocToFoyer/{idbloc}/{idfoyer}")
+    @Operation(summary = "assign Bloc To Foyer", description = "assign Bloc To Foyer.")
+    public void assignBlocToFoyer(@PathVariable("idbloc") long idbloc, @PathVariable("idfoyer") long idfoyer) {
+        foyerService.assignBlocToFoyer(idbloc, idfoyer);
+    }
 }

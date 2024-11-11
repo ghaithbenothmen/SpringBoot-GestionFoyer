@@ -1,8 +1,10 @@
 package com.example.foyerprojectspring.Entities;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +27,7 @@ public class Reservation {
 
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Etudiant> etudiants;
+    @ManyToMany
+    @JsonIgnore
+    private List<Etudiant> etudiants;
 }

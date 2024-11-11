@@ -53,4 +53,12 @@ public class BlocController {
     public List<Bloc> getAllBloc() {
         return blocService.getAllBloc();
     }
+
+    @PostMapping("/addBlocChambre")
+    @Operation(summary = "ajouter Bloc Et Chambres Associe", description = "ajouter Bloc Et Chambres Associe.")
+    public Bloc addBlocChambre(@RequestBody Bloc bloc) {
+        return blocService.ajouterBlocEtChambresAssocie(bloc);
+    }
+
+
 }

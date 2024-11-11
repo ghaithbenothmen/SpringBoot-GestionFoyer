@@ -1,6 +1,7 @@
 package com.example.foyerprojectspring.Entities;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.*;
@@ -26,6 +27,6 @@ public class Etudiant {
     private Date dateNaissance;
 
     @ManyToMany(mappedBy = "etudiants", cascade = CascadeType.ALL)
-    private Set<Reservation> resevations;
+    private List<Reservation> resevations;
 
 }

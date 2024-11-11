@@ -20,7 +20,6 @@ public class Universite {
     private String nomUniversite;
     private String adresseUniversite;
 
-    @OneToOne
-    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
     private Foyer foyer;
 }

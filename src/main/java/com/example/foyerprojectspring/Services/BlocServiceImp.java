@@ -2,6 +2,7 @@ package com.example.foyerprojectspring.Services;
 
 import com.example.foyerprojectspring.Entities.Bloc;
 import com.example.foyerprojectspring.Repository.BlocRepository;
+import com.example.foyerprojectspring.Repository.ChambreRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class BlocServiceImp implements IBlocService{
 
     BlocRepository blocRepository;
+ChambreRepository chambreRepository;
 
     @Override
     public Bloc addBloc(Bloc bloc) {
@@ -36,5 +38,17 @@ public class BlocServiceImp implements IBlocService{
     @Override
     public List<Bloc> getAllBloc() {
         return blocRepository.findAll();
+    }
+
+    @Override
+    public Bloc ajouterBlocEtChambresAssocie(Bloc bloc) {
+        Bloc newBloc = blocRepository.save(bloc);
+
+        newBloc.getChambreList().forEach(chambre ->
+        {
+            chambre.setBloc(newBloc);
+            chambreRepository.save(chambre);
+        });
+        return newBloc;
     }
 }

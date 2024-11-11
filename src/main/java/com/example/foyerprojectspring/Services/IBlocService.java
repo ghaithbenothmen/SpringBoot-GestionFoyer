@@ -16,4 +16,6 @@ public interface IBlocService {
     void deleteBloc(Bloc bloc);
 
     List<Bloc> getAllBloc();
+
+    Bloc ajouterBlocEtChambresAssocie(Bloc bloc) ;
 }
