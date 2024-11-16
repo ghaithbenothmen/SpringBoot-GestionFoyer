@@ -61,5 +61,13 @@ EtudiantRepository etudiantRepository;
        return reservation;
     }
 
+    @Override
+    public void desaffecterEtudiantFromReservation(String reservationId, Long etudiantId) {
+        Reservation reservation = getReservationById(Integer.valueOf(reservationId));
+        Etudiant etudiant = etudiantRepository.findById(etudiantId).get();
+        reservation.getEtudiants().remove(etudiant);
+        reservationRepository.save(reservation);
+    }
+
 
 }

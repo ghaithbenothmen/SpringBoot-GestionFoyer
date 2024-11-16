@@ -2,6 +2,7 @@ package com.example.foyerprojectspring.Controllers;
 
 
 import com.example.foyerprojectspring.Entities.Chambre;
+import com.example.foyerprojectspring.Entities.TypeChambre;
 import com.example.foyerprojectspring.Services.IChambreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -52,5 +53,17 @@ public class ChambreController {
     @Operation(summary = "Get all Chambres", description = "Retrieves a list of all Chambres.")
     public List<Chambre> getAllChambre() {
         return chambreService.getAllChambre();
+    }
+
+    @GetMapping("chambretype/{type}")
+    @Operation(summary = "Get all Chambres By Type chambre", description = "Retrieves a list of all Chambres by type.")
+    public List<Chambre> getAllChambreByType(@PathVariable("type") TypeChambre type) {
+        return chambreService.findAllByTypeChambre(type);
+    }
+
+    @GetMapping("chambrenum/{num}")
+    @Operation(summary = "Get all Chambres By Type chambre", description = "Retrieves a list of all Chambres by type.")
+    public Chambre getByChambreNum(@PathVariable("num") Long num) {
+        return chambreService.findByNumeroChambre(num);
     }
 }

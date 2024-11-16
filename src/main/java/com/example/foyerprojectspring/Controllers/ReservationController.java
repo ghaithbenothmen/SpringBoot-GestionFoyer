@@ -59,5 +59,10 @@ public class ReservationController {
         return reservationService.affecterEtudiantToReservation(idetudiant,idReservation);
     }
 
+    @PutMapping("desaffecterEtudiantFromReservation/{reservationId}/{etudiantId}")
+    public void desaffecterEtudiantFromReservation(@PathVariable ("reservationId") String reservationId, @PathVariable ("etudiantId") Long etudiantId) {
+        reservationService.desaffecterEtudiantFromReservation(reservationId , etudiantId);
+    }
+
 }
 

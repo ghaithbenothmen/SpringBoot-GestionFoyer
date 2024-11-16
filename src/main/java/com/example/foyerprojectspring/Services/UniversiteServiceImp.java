@@ -49,4 +49,12 @@ public class UniversiteServiceImp implements IUniversiteService {
 
         return universiteRepository.save(universite);
     }
+
+    @Override
+    public Universite DesaffecterFoyerFromUniversite(Long universiteId){
+        Universite universite = universiteRepository.findById(universiteId).get();
+        universite.setFoyer(null);
+        universiteRepository.save(universite);
+        return universite;
+    }
 }

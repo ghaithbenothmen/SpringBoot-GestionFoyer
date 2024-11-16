@@ -1,6 +1,7 @@
 package com.example.foyerprojectspring.Services;
 
 import com.example.foyerprojectspring.Entities.Chambre;
+import com.example.foyerprojectspring.Entities.TypeChambre;
 import com.example.foyerprojectspring.Repository.ChambreRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
@@ -46,6 +47,16 @@ public class ChambreServiceImp implements IChambreService{
             throw new EntityNotFoundException("Chambre not found with id: " + idChambre);
         }
         chambreRepository.deleteById(idChambre);
+    }
+
+    @Override
+    public List<Chambre> findAllByTypeChambre(TypeChambre typeChambre) {
+        return chambreRepository.findAllByTypeC(typeChambre);
+    }
+
+    @Override
+    public Chambre findByNumeroChambre(Long numeroChambre) {
+        return chambreRepository.findChambreByNumeroChambre(numeroChambre);
     }
 
 

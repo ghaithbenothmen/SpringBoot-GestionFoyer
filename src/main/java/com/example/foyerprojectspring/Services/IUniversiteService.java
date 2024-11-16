@@ -20,4 +20,6 @@ public interface IUniversiteService {
 
     Universite affecterFoyerExistsToUniversite(long id, Foyer foyer);
 
+
+    Universite DesaffecterFoyerFromUniversite(Long UniversiteId) ;
 }
